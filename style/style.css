@@ -1,0 +1,22 @@
+table thead tr th:first-child{
+	background: green
+}
+table thead tr th:nth-child(2){
+	background: red
+}
+table {
+	font-size:60;
+	height:70%;
+	width:100%;
+	border:solid 1px #000000;
+}
+table th,
+table td{
+	border:solid 1px #000000;
+	height:25%;
+}
+button{
+	font-size:60;
+	height:100%;
+	width:100%;
+}
