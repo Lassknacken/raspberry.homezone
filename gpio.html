@@ -22,21 +22,21 @@
 		        </tr>
 			</tbody>
 		</table>
-		<div id="allButtons" style="height:100;width:100px;position:relative;background-color:blue" onclick="allOn()"></div>
+		<div id="allButtons" style="height:100;width:100px;position:relative;background-color:blue" onclick="allOff()"></div>
 		<script type='text/javascript' src='script/knockout-3.3.0.js'></script>
 		<script type='text/javascript' src='script/Helper.js'></script>
 		<script type='text/javascript' src='script/SteckdosenModel.js'></script>
 		<script type="text/javascript">
 			/// <reference path="../typings/knockout/knockout.d.ts"/>
-			function allOn(){
+			function allOff(){
 				var dosen = new SteckdosenModel().steckdosen();
 
 				for(var i=0;i<dosen.length;i++)
 				{
 					var current = dosen[i];
 					console.log(current.name);
-					this.schalten(current.codeOn,"switch");
-					sleep(2000);
+					this.schalten(current.codeOff,"switch");
+					sleep(2500);
 				}
 			}
 			
