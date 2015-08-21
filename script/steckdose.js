@@ -1,3 +1,4 @@
+/// <reference path="../typings/knockout/knockout.d.ts"/>
 function Steckdose(frequency, id, name) {
     var self = this;
 
