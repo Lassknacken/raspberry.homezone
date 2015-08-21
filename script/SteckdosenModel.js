@@ -1,4 +1,16 @@
 /// <reference path="../typings/knockout/knockout.d.ts"/>
+function Steckdose(frequency, id, name) {
+    var self = this;
+
+    self.id = id;
+    self.frequency = frequency;
+    self.name = name;
+
+    self.code = frequency + " " + self.id;
+    self.codeOn = self.code + " 1";
+    self.codeOff = self.code + " 0";
+}
+
 function SteckdosenModel() {
     var self = this;
 
