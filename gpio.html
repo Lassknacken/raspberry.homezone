@@ -22,58 +22,26 @@
 		        </tr>
 			</tbody>
 		</table>
-		<div style="height:100;width:100px;position:relative;background-color:black" onclick="test()">
-		</div>
+		<div id="allButtons" style="height:100;width:100px;position:relative;background-color:blue" onclick="allOn()"></div>
+		<div style="height:100;width:100px;position:relative;background-color:black" onclick="test()"><div>
 		<div id="test" style="height:200px;width:600px;background-color:red;position:relative;display:none">
 			<ul data-bind="foreach: cronjobs">
 				<li data-bind="html: job"></li>
 			</ul>
 		</div>
-		<script type='text/javascript' src='script/knockout-3.3.0.js'/></script>
-		<script type='text/javascript' src='script/steckdose.js'/></script>
+		<script type='text/javascript' src='script/knockout-3.3.0.js'></script>
+		<script type='text/javascript' src='script/steckdose.js'></script>
 		<script type="text/javascript">
 			/// <reference path="../typings/knockout/knockout.d.ts"/>
-			/*function Cronjob(job) {
-			    var self = this;
-			    self.job = job;
-			}
-	
-			function CronjobModel(jobs) {
-				var self = this;
-				
-				self.cronjobs = ko.observableArray();
-				self.cronjobs.push(jobs);
-			}
-			
-			function test() {
+			function allOn(){
+				var dosen = new SteckdosenModel().steckdosen();
 
-				var cronjobs= ko.observableArray();
-
-				var request = new XMLHttpRequest();
-				request.open('GET', 'gpio_crontab.php?action=get_crontab',false);
-				request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-				request.send(null);
-				
-				
-				document.getElementById("test").style.display="block";				
-				var crontabList=request.responseText;
-				var lines = crontabList.split('\n');
-				for(var i=0;i<lines.length;i++){
-					var line =lines[i];
-					
-					if(line[0]==='#'){
-						continue;
-					}
-					console.log(line);
-					cronjobs.push(line);
-					
-					//document.getElementById("test").innerText+=line+"\n";
+				for(var i=0;i<dosen.length;i++)
+				{
+					var current = dosen[i];
+					this.schalten(current.codeOn,current.name);
 				}
-				
-				ko.applyBindings(new CronjobModel(cronjobs));
-				
-				//=crontabList;
-			}*/
+			}
 			
 			/*
 			schickt den Code vom zugewiesenen Button per "POST" ab
@@ -86,7 +54,7 @@
 				console.log(postString);
 				var request = new XMLHttpRequest();
 				
-				request.open('POST', 'gpio.php', true);
+				request.open('POST', 'http://192.168.2.109/steckdosen/gpio.php', true);
 				request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				request.send(postString);
 			}
