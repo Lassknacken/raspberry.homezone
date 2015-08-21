@@ -1,9 +1,9 @@
 <?php
 
-if(isset($_POST['tipp']))
+if(isset($_POST['switch']))
 {
-	shell_exec("sudo send {$_POST['tipp']}");
-	echo "sent: {$_POST['tipp']}";
+	shell_exec("sudo send {$_POST['switch']}");
+	echo "sent: {$_POST['switch']}";
 }
 
 

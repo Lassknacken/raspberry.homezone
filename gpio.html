@@ -13,11 +13,11 @@
 			<tbody data-bind="foreach: steckdosen">
 				<tr>
 		            <td>
-						<!--<button type="submit" data-bind="value: codeOn, html: name" name="tipp" form="steckdosen"></button>-->
-						<button data-bind="value: codeOn, html: name" name="tipp" onclick="schalten(this.value,this.name)"></button>
+						<!--<button type="submit" data-bind="value: codeOn, html: name" name="switch" form="steckdosen"></button>-->
+						<button data-bind="value: codeOn, html: name" name="switch" onclick="schalten(this.value,this.name)"></button>
 					</td>
 		            <td>
-						<button data-bind="value: codeOff, html: name" name="tipp" onclick="schalten(this.value,this.name)"></button>
+						<button data-bind="value: codeOff, html: name" name="switch" onclick="schalten(this.value,this.name)"></button>
 					</td>
 		        </tr>
 			</tbody>
@@ -34,7 +34,7 @@
 				{
 					var current = dosen[i];
 					console.log(current.name);
-					this.schalten(current.codeOn);
+					this.schalten(current.codeOn,"switch");
 				}
 			}
 			
