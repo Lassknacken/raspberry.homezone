@@ -23,12 +23,6 @@
 			</tbody>
 		</table>
 		<div id="allButtons" style="height:100;width:100px;position:relative;background-color:blue" onclick="allOn()"></div>
-		<div style="height:100;width:100px;position:relative;background-color:black" onclick="test()"><div>
-		<div id="test" style="height:200px;width:600px;background-color:red;position:relative;display:none">
-			<ul data-bind="foreach: cronjobs">
-				<li data-bind="html: job"></li>
-			</ul>
-		</div>
 		<script type='text/javascript' src='script/knockout-3.3.0.js'></script>
 		<script type='text/javascript' src='script/steckdose.js'></script>
 		<script type="text/javascript">
@@ -39,7 +33,8 @@
 				for(var i=0;i<dosen.length;i++)
 				{
 					var current = dosen[i];
-					this.schalten(current.codeOn,current.name);
+					console.log(current.name);
+					this.schalten(current.codeOn);
 				}
 			}
 			
@@ -47,14 +42,12 @@
 			schickt den Code vom zugewiesenen Button per "POST" ab
 			*/
 			function schalten(code,name){
-				console.clear();
 				console.log(code);
-				console.log(name);
 				var postString=name+'='+code;
 				console.log(postString);
 				var request = new XMLHttpRequest();
 				
-				request.open('POST', 'http://192.168.2.109/steckdosen/gpio.php', true);
+				request.open('POST', 'gpio.php', true);
 				request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				request.send(postString);
 			}
