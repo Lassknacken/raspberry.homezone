@@ -20,7 +20,7 @@ function SteckdosenModel() {
         new Steckdose("01100", "3", "TV Schlafzimmer"),
 
         new Steckdose("01011", "1", "Daniel A"),
-        new Steckdose("01011", "2", "Daniel B"),
+        new Steckdose("01011", "2", "PC Sabrina"),
         new Steckdose("01011", "3", "Daniel C")
     ]);
 }
