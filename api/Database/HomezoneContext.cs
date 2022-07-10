@@ -8,8 +8,8 @@ namespace api.Database
         public DbSet<Models.Endpoint> Endpoints { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite(@"Data Source=D:\project\Homezone\api\homezone.db");
-            // => options.UseSqlite("Data Source=/home/pi/homezone/homezone.db");
+            // => options.UseSqlite(@"Data Source=D:\project\Homezone\api\homezone.db");
+            => options.UseSqlite("Data Source=homezone.db");
             ///home/pi/homezone
     }
 
